@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Stanislav Jiroš — Černá bižuterie. Bijouterie noire traditionnelle de Jablonec." />
+<title>Accueil — Černá bižuterie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <span class="brand-title">Černá bižuterie</span>
+      <span class="brand-sub">Bijouterie noire · Stanislav Jiroš</span>
+    </a>
+  </div>
+  <div class="header-right">
+    <nav class="lang-switch" aria-label="Language"><a href="../cs/index.html" data-lang="cs">CS</a><span class="sep" aria-hidden="true">·</span><a href="../en/index.html" data-lang="en">EN</a><span class="sep" aria-hidden="true">·</span><a href="../fr/index.html" data-lang="fr" class="active">FR</a><span class="sep" aria-hidden="true">·</span><a href="../de/index.html" data-lang="de">DE</a></nav>
+    <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+  <nav class="site-nav" id="site-nav">
+<a href="index.html" class="active">Accueil</a>
+<a href="vyrobky.html">Produits</a>
+<a href="sklo.html">Verre</a>
+<a href="ceny.html">Prix</a>
+<a href="historie.html">Histoire</a>
+<a href="oceneni.html">Récompenses</a>
+<a href="kontakt.html">Contact</a>
+  </nav>
+</header>
+<main class="page">
+<section class="hero">
+  <p class="hero-tagline">Bijouterie en verre traditionnelle de Jablonec depuis 1882</p>
+  <h1>Černá bižuterie</h1>
+  <p class="lede">La bijouterie noire fait partie des branches importantes de l’industrie de Jablonec depuis 1882. Sa popularité culmina à la mort de la reine Victoria d’Angleterre (1901), lorsque cet ornement devint un bijou de deuil pour les pays de l’Empire britannique. Ce bijou en verre est fabriqué à Jablonec nad Nisou à partir de la matière d’origine.</p>
+  <p class="hero-actions"><a class="btn" href="vyrobky.html">Voir les produits</a></p>
+  <figure class="hero-fig">
+    <img src="../images/nejfoto.jpg" alt="Černá bižuterie — exemple de bijou" width="720" />
+  </figure>
+</section>
+</main>
+
+<footer class="site-footer">
+  <h3>Conditions commerciales, de paiement et de livraison</h3>
+  <p>Commandes par téléphone au <a href="tel:+420723335058">723&nbsp;335&nbsp;058</a> ou par e-mail à <a href="mailto:blackjet@centrum.cz">blackjet@centrum.cz</a>.</p>
+  <p>Tous les articles sont emballés individuellement dans des boîtes en papier avec fenêtre.</p>
+  <p>Paiement contre remboursement à l’envoi (frais de port et d’emballage <strong>115,- Kč</strong>, gratuits au-delà de <strong>3&nbsp;450,- Kč</strong>) ou en espèces lors d’un retrait en personne (après accord téléphonique préalable).</p>
+</footer>
+
+<dialog id="lightbox" class="lightbox">
+  <form method="dialog"><button class="lb-close" aria-label="Fermer">×</button></form>
+  <img id="lb-img" alt="" />
+  <p id="lb-cap"></p>
+</dialog>
+<script src="../lang.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

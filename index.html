@@ -1,84 +1,27 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Stanislav Jiroš — Černá bižuterie. Tradiční jablonecká černá bižuterie." />
-<title>Úvod — Černá bižuterie</title>
-<link rel="stylesheet" href="styles.css" />
-
+<meta name="description" content="Stanislav Jiroš — Černá bižuterie. Traditional Jablonec black glass jewellery." />
+<title>Černá bižuterie</title>
+<script>document.documentElement.setAttribute('data-cerna-redirect','1');</script>
+<script src="lang.js"></script>
+<style>
+  body{margin:0;background:#080706;color:#f5ecd8;font-family:system-ui,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center}
+  a{color:#c2b280}
+  .box{text-align:center;padding:2rem}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="brand">
-    <a href="index.html">
-      <span class="brand-title">Černá bižuterie</span>
-      <span class="brand-sub">Stanislav Jiroš</span>
-    </a>
-  </div>
-  <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-  <nav class="site-nav" id="site-nav">
-<a href="index.html" class="active">Úvod</a>
-<a href="vyrobky.html" class="">Výrobky</a>
-<a href="sklo.html" class="">Sklo</a>
-<a href="ceny.html" class="">Ceny</a>
-<a href="historie.html" class="">Historie</a>
-<a href="oceneni.html" class="">Ocenění</a>
-<a href="kontakt.html" class="">Kontakt</a>
-  </nav>
-</header>
-<main class="page">
-
-<section class="hero">
-  <h1>Černá bižuterie</h1>
-  <p class="lede">Černá bižuterie patřila od roku 1882 k významnému odvětví jabloneckého průmyslu.
-  Její obliba vyvrcholila v době smrti anglické královny Viktorie (1901), kdy se z této ozdoby
-  stal smuteční šperk pro země britského impéria. Tento skleněný šperk byl zhotoven
-  v Jablonci nad Nisou z původní suroviny.</p>
-  <figure class="hero-fig">
-    <img src="images/nejfoto.jpg" alt="Černá bižuterie — ukázka šperku" width="540" />
-  </figure>
-</section>
-
-</main>
-
-<footer class="site-footer">
-  <h3>Obchodní, platební a dodací podmínky</h3>
-  <p>Objednávky telefonicky na čísle <a href="tel:+420723335058">723&nbsp;335&nbsp;058</a>
-  nebo e-mailem na adrese <a href="mailto:blackjet@centrum.cz">blackjet@centrum.cz</a>.</p>
-  <p>Veškeré zboží je baleno jednotlivě v papírových krabičkách s průhledem.</p>
-  <p>Platba na dobírku při zaslání zboží (poštovné a balné <strong>115,- Kč</strong>,
-  při odběru nad <strong>3&nbsp;450,- Kč</strong> zdarma)
-  nebo hotově při osobním odběru (po telefonické domluvě předem).</p>
-</footer>
-
-<dialog id="lightbox" class="lightbox">
-  <form method="dialog"><button class="lb-close" aria-label="Zavřít">×</button></form>
-  <img id="lb-img" alt="" />
-  <p id="lb-cap"></p>
-</dialog>
-<script>
-(function(){
-  const toggle=document.querySelector('.nav-toggle');
-  const nav=document.getElementById('site-nav');
-  if(toggle){toggle.addEventListener('click',()=>{
-    const open=nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open?'true':'false');
-  });}
-  const dlg=document.getElementById('lightbox');
-  const img=document.getElementById('lb-img');
-  const cap=document.getElementById('lb-cap');
-  document.querySelectorAll('a[data-lightbox]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      e.preventDefault();
-      img.src=a.getAttribute('href');
-      img.alt=a.dataset.caption||'';
-      cap.textContent=a.dataset.caption||'';
-      dlg.showModal();
-    });
-  });
-  dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
-})();
-</script>
+<div class="box">
+  <p>Černá bižuterie</p>
+  <p>
+    <a href="cs/index.html">Česky</a> ·
+    <a href="en/index.html">English</a> ·
+    <a href="fr/index.html">Français</a> ·
+    <a href="de/index.html">Deutsch</a>
+  </p>
+</div>
 </body>
 </html>
