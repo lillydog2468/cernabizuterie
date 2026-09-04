@@ -405,3 +405,53 @@ h2 {
   font-size: 0.92rem;
   color: var(--cream-dim);
 }
+
+/* —— Homepage era / history strip —— */
+.era-strip {
+  list-style: none;
+  margin: 1.4rem 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .era-strip { grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+}
+.era-strip li {
+  background: rgba(194, 178, 128, 0.08);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 0.9rem 1rem 1rem;
+}
+.era-year {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+.era-text {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--cream-dim);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.btn-ghost:hover {
+  background: rgba(194, 178, 128, 0.12);
+  color: var(--cream);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+}
