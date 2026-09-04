@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Stanislav Jiroš — Černá bižuterie. Tradiční jablonecká černá bižuterie." />
+<title>Ocenění — Černá bižuterie</title>
+<link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <span class="brand-title">Černá bižuterie</span>
+      <span class="brand-sub">Stanislav Jiroš</span>
+    </a>
+  </div>
+  <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  <nav class="site-nav" id="site-nav">
+<a href="index.html" class="">Úvod</a>
+<a href="vyrobky.html" class="">Výrobky</a>
+<a href="sklo.html" class="">Sklo</a>
+<a href="ceny.html" class="">Ceny</a>
+<a href="historie.html" class="">Historie</a>
+<a href="oceneni.html" class="active">Ocenění</a>
+<a href="kontakt.html" class="">Kontakt</a>
+  </nav>
+</header>
+<main class="page">
+
+<h1>Ocenění</h1>
+<figure class="hero-fig">
+  <a href="https://www.ceskatelevize.cz/ivysilani/1126666764-toulava-kamera/215562221500016/obsah/394995-cerna-bizuterie" target="_blank" rel="noopener">
+    <img src="images/toulavakamera.jpg" alt="Toulavá kamera — Černá bižuterie" width="540" />
+  </a>
+  <figcaption>Pořad Toulavá kamera České televize ze dne 19.&nbsp;4.&nbsp;2015. Reportáž o černé bižuterii.</figcaption>
+</figure>
+<figure class="hero-fig">
+  <img src="images/oceneni.jpg" alt="Ocenění" width="540" />
+</figure>
+
+</main>
+
+<footer class="site-footer">
+  <h3>Obchodní, platební a dodací podmínky</h3>
+  <p>Objednávky telefonicky na čísle <a href="tel:+420723335058">723&nbsp;335&nbsp;058</a>
+  nebo e-mailem na adrese <a href="mailto:blackjet@centrum.cz">blackjet@centrum.cz</a>.</p>
+  <p>Veškeré zboží je baleno jednotlivě v papírových krabičkách s průhledem.</p>
+  <p>Platba na dobírku při zaslání zboží (poštovné a balné <strong>115,- Kč</strong>,
+  při odběru nad <strong>3&nbsp;450,- Kč</strong> zdarma)
+  nebo hotově při osobním odběru (po telefonické domluvě předem).</p>
+</footer>
+
+<dialog id="lightbox" class="lightbox">
+  <form method="dialog"><button class="lb-close" aria-label="Zavřít">×</button></form>
+  <img id="lb-img" alt="" />
+  <p id="lb-cap"></p>
+</dialog>
+<script>
+(function(){
+  const toggle=document.querySelector('.nav-toggle');
+  const nav=document.getElementById('site-nav');
+  if(toggle){toggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open?'true':'false');
+  });}
+  const dlg=document.getElementById('lightbox');
+  const img=document.getElementById('lb-img');
+  const cap=document.getElementById('lb-cap');
+  document.querySelectorAll('a[data-lightbox]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      img.src=a.getAttribute('href');
+      img.alt=a.dataset.caption||'';
+      cap.textContent=a.dataset.caption||'';
+      dlg.showModal();
+    });
+  });
+  dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+})();
+</script>
+</body>
+</html>

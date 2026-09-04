@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Stanislav Jiroš — Černá bižuterie. Tradiční jablonecká černá bižuterie." />
+<title>Sklo / Betlémy — Černá bižuterie</title>
+<link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <span class="brand-title">Černá bižuterie</span>
+      <span class="brand-sub">Stanislav Jiroš</span>
+    </a>
+  </div>
+  <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  <nav class="site-nav" id="site-nav">
+<a href="index.html" class="">Úvod</a>
+<a href="vyrobky.html" class="">Výrobky</a>
+<a href="sklo.html" class="active">Sklo</a>
+<a href="ceny.html" class="">Ceny</a>
+<a href="historie.html" class="">Historie</a>
+<a href="oceneni.html" class="">Ocenění</a>
+<a href="kontakt.html" class="">Kontakt</a>
+  </nav>
+</header>
+<main class="page">
+<h1>Sklo / Betlémy</h1>
+<p>Jedná se o skleněné figurky, které dohromady tvoří BETLÉM. Sady jsou přesně podle fotografií, v každé sadě se mohou postavy mírně lišit v detailech a barvách, každá postava je originál. Velikost postav 7–8&nbsp;cm.</p>
+<p>Vše dokonale zabaleno k přepravě. Případně lze dohodnout jiné sestavy (počet a složení).</p>
+<h2>Minimalistický betlém. 3 figurky, 400,- Kč.</h2>
+<div class="gallery bet-gallery"><a class="card" href="images/bet/3.jpg" data-lightbox data-caption="vzor: Betlém 3, cena: 400,- Kč"><img src="images/bet/3_t.jpg" alt="Betlém 3" loading="lazy" /><span class="cap"><strong>400,- Kč</strong></span></a></div>
+<h2>Malý betlém. 5 figurek, 630,- Kč.</h2>
+<div class="gallery bet-gallery"><a class="card" href="images/bet/5.jpg" data-lightbox data-caption="vzor: Betlém 5, cena: 630,- Kč"><img src="images/bet/5_t.jpg" alt="Betlém 5" loading="lazy" /><span class="cap"><strong>630,- Kč</strong></span></a></div>
+<h2>Menší betlém. 7 figurek, 860,- Kč.</h2>
+<div class="gallery bet-gallery"><a class="card" href="images/bet/7.jpg" data-lightbox data-caption="vzor: Betlém 7, cena: 860,- Kč"><img src="images/bet/7_t.jpg" alt="Betlém 7" loading="lazy" /><span class="cap"><strong>860,- Kč</strong></span></a></div>
+<h2>Základní betlém. 12 figurek, 1380,- Kč.</h2>
+<div class="gallery bet-gallery"><a class="card" href="images/bet/12.jpg" data-lightbox data-caption="vzor: Betlém 12, cena: 1380,- Kč"><img src="images/bet/12_t.jpg" alt="Betlém 12" loading="lazy" /><span class="cap"><strong>1380,- Kč</strong></span></a></div>
+<h2>Ideální betlém. 15 figurek, 1670,- Kč.</h2>
+<div class="gallery bet-gallery"><a class="card" href="images/bet/15.jpg" data-lightbox data-caption="vzor: Betlém 15, cena: 1670,- Kč"><img src="images/bet/15_t.jpg" alt="Betlém 15" loading="lazy" /><span class="cap"><strong>1670,- Kč</strong></span></a></div>
+</main>
+
+<footer class="site-footer">
+  <h3>Obchodní, platební a dodací podmínky</h3>
+  <p>Objednávky telefonicky na čísle <a href="tel:+420723335058">723&nbsp;335&nbsp;058</a>
+  nebo e-mailem na adrese <a href="mailto:blackjet@centrum.cz">blackjet@centrum.cz</a>.</p>
+  <p>Veškeré zboží je baleno jednotlivě v papírových krabičkách s průhledem.</p>
+  <p>Platba na dobírku při zaslání zboží (poštovné a balné <strong>115,- Kč</strong>,
+  při odběru nad <strong>3&nbsp;450,- Kč</strong> zdarma)
+  nebo hotově při osobním odběru (po telefonické domluvě předem).</p>
+</footer>
+
+<dialog id="lightbox" class="lightbox">
+  <form method="dialog"><button class="lb-close" aria-label="Zavřít">×</button></form>
+  <img id="lb-img" alt="" />
+  <p id="lb-cap"></p>
+</dialog>
+<script>
+(function(){
+  const toggle=document.querySelector('.nav-toggle');
+  const nav=document.getElementById('site-nav');
+  if(toggle){toggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open?'true':'false');
+  });}
+  const dlg=document.getElementById('lightbox');
+  const img=document.getElementById('lb-img');
+  const cap=document.getElementById('lb-cap');
+  document.querySelectorAll('a[data-lightbox]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      img.src=a.getAttribute('href');
+      img.alt=a.dataset.caption||'';
+      cap.textContent=a.dataset.caption||'';
+      dlg.showModal();
+    });
+  });
+  dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+})();
+</script>
+</body>
+</html>
