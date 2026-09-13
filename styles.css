@@ -14,6 +14,7 @@
   --radius: 12px;
   --max: 1040px;
   --serif: "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  --display: "Cinzel Decorative", "Cormorant Garamond", Georgia, serif;
   --sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
@@ -50,20 +51,25 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .brand a { text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.18rem; max-width: 100%; }
 .brand-title {
-  font-family: var(--serif);
-  font-size: clamp(2.8rem, 7.5vw, 4.55rem);
-  line-height: 1.02;
-  letter-spacing: 0.04em;
-  text-transform: none;
+  font-family: var(--display);
+  font-size: clamp(1.85rem, 5.2vw, 3.1rem);
+  line-height: 1.12;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--cream);
-  font-weight: 600;
-  text-shadow: 0 2px 18px rgba(194, 178, 128, 0.18);
+  font-weight: 700;
+  /* cream fill + soft dark edge so it stays readable (A1) */
+  -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.85);
+  paint-order: stroke fill;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.55),
+    0 2px 14px rgba(194, 178, 128, 0.16);
 }
 .brand-sub {
   font-family: var(--sans);
-  font-size: clamp(1.07rem, 2.35vw, 1.37rem);
+  font-size: clamp(0.78rem, 1.7vw, 0.95rem);
   color: var(--gold);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -297,7 +303,7 @@ h2 {
 
 @media (max-width: 720px) {
   .site-header { padding: 0.7rem 0.9rem 0.8rem; }
-  .brand-title { font-size: clamp(2.4rem, 10.4vw, 3.3rem); }
+  .brand-title { font-size: clamp(1.55rem, 7.2vw, 2.35rem); }
   .nav-toggle { display: inline-block; }
   .site-nav {
     display: none; width: 100%; flex-direction: column; gap: 0.4rem;
