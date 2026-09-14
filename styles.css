@@ -283,23 +283,34 @@ h2 {
 .site-footer p { margin: 0.45rem 0; }
 
 .lightbox {
+  /* Fixed in the viewport so opening a product does not scroll the page */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: min(94vw, 820px);
   border: 1px solid var(--line-strong);
   border-radius: 14px;
   padding: 1.15rem;
   background: #0a0908;
   color: var(--cream);
-  max-width: min(94vw, 820px);
   box-shadow: 0 30px 80px rgba(0,0,0,0.7);
 }
 .lightbox::backdrop { background: rgba(0,0,0,0.82); }
-.lightbox img { max-height: 78vh; margin: 0 auto; border-radius: 6px; }
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  margin: 0 auto;
+  border-radius: 6px;
+}
 .lightbox p { text-align: center; margin: 0.85rem 0 0; color: var(--cream-dim); }
 .lb-close {
   position: absolute; top: 0.4rem; right: 0.6rem;
   background: transparent; border: none; color: var(--cream);
   font-size: 1.7rem; cursor: pointer; line-height: 1;
 }
-.lightbox { position: relative; }
 
 @media (max-width: 720px) {
   .site-header { padding: 0.7rem 0.9rem 0.8rem; }
