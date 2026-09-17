@@ -493,6 +493,14 @@ def page_shell(t: dict, page: str, title: str, main: str) -> str:
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-761VCYGKWC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-761VCYGKWC');
+</script>
 <meta name="description" content="{t["meta_desc"]}" />
 <title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -944,6 +952,14 @@ ROOT_INDEX = '''<!DOCTYPE html>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-761VCYGKWC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-761VCYGKWC');
+</script>
 <meta name="description" content="Stanislav Jiroš — Černá bižuterie. Traditional Jablonec black glass jewellery." />
 <title>Černá bižuterie</title>
 <script>document.documentElement.setAttribute('data-cerna-redirect','1');</script>

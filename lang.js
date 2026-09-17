@@ -36,7 +36,7 @@
   /** Root redirector: /index.html → /{lang}/index.html (relative — works on GitHub Pages) */
   function redirectRoot() {
     var lang = getPreferredLang();
-    location.replace(lang + '/index.html');
+    location.replace(lang + '/index.html' + location.search + location.hash);
   }
 
   function initSwitcher() {
