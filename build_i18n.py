@@ -71,6 +71,8 @@ T = {
         "home_lede": "Černá bižuterie patřila od roku 1882 k významnému odvětví jabloneckého průmyslu. Její obliba vyvrcholila v době smrti anglické královny Viktorie (1901), kdy se z této ozdoby stal smuteční šperk pro země britského impéria. Tento skleněný šperk byl zhotoven v Jablonci nad Nisou z původní suroviny.",
         "home_img_alt": "Černá bižuterie — ukázka šperku",
         "home_cta": "Prohlédnout výrobky",
+        "portrait_cap": "Stanislav Jiroš – výrobce černé bižuterie",
+        "portrait_link_title": "Historie černé bižuterie",
         "vyrobky_title": "Výrobky — Černá bižuterie",
         "vyrobky_h1": "Výrobky",
         "vyrobky_intro": "Galerie černé bižuterie. Kliknutím na náhled zobrazíte větší fotografii.",
@@ -144,6 +146,8 @@ T = {
         "home_lede": "Black jewellery has been an important part of Jablonec industry since 1882. Its popularity peaked around the death of Queen Victoria (1901), when this ornament became mourning jewellery for the countries of the British Empire. This glass jewellery is made in Jablonec nad Nisou from the original material.",
         "home_img_alt": "Černá bižuterie — jewellery sample",
         "home_cta": "Browse products",
+        "portrait_cap": "Stanislav Jiroš – black jewellery maker",
+        "portrait_link_title": "History of black jewellery",
         "vyrobky_title": "Products — Černá bižuterie",
         "vyrobky_h1": "Products",
         "vyrobky_intro": "Gallery of black jewellery. Click a thumbnail to view a larger photo.",
@@ -216,6 +220,8 @@ T = {
         "home_lede": "La bijouterie noire fait partie des branches importantes de l’industrie de Jablonec depuis 1882. Sa popularité culmina à la mort de la reine Victoria d’Angleterre (1901), lorsque cet ornement devint un bijou de deuil pour les pays de l’Empire britannique. Ce bijou en verre est fabriqué à Jablonec nad Nisou à partir de la matière d’origine.",
         "home_img_alt": "Černá bižuterie — exemple de bijou",
         "home_cta": "Voir les produits",
+        "portrait_cap": "Stanislav Jiroš – fabricant de bijouterie noire",
+        "portrait_link_title": "Histoire de la bijouterie noire",
         "vyrobky_title": "Produits — Černá bižuterie",
         "vyrobky_h1": "Produits",
         "vyrobky_intro": "Galerie de bijouterie noire. Cliquez sur une vignette pour agrandir la photo.",
@@ -288,6 +294,8 @@ T = {
         "home_lede": "Schwarzer Schmuck gehört seit 1882 zu einem bedeutenden Zweig der Gablonzer Industrie. Seine Beliebtheit gipfelte um den Tod der englischen Königin Victoria (1901), als dieser Schmuck zum Trauerschmuck für die Länder des Britischen Empire wurde. Dieser Glasschmuck wird in Jablonec nad Nisou aus dem ursprünglichen Material gefertigt.",
         "home_img_alt": "Černá bižuterie — Schmuckbeispiel",
         "home_cta": "Produkte ansehen",
+        "portrait_cap": "Stanislav Jiroš – Hersteller von schwarzem Schmuck",
+        "portrait_link_title": "Geschichte des schwarzen Schmucks",
         "vyrobky_title": "Produkte — Černá bižuterie",
         "vyrobky_h1": "Produkte",
         "vyrobky_intro": "Galerie des schwarzen Schmucks. Klicken Sie auf ein Vorschaubild für ein größeres Foto.",
@@ -514,6 +522,12 @@ def page_shell(t: dict, page: str, title: str, main: str) -> str:
 
 def build_index(t):
     main = f'''<section class="hero">
+  <figure class="maker-portrait">
+    <a href="historie.html" title="{t["portrait_link_title"]}">
+      <img src="../images/stanislav.jpg" alt="Stanislav Jiroš" width="160" height="160" />
+    </a>
+    <figcaption>{t["portrait_cap"]}</figcaption>
+  </figure>
   <p class="hero-tagline">{t["tagline"]}</p>
   <h1>{t["home_h1"]}</h1>
   <p class="lede">{t["home_lede"]}</p>
@@ -936,6 +950,39 @@ h2 {
   .nav-toggle { order: 3; }
   .site-nav { order: 4; }
   .lang-switch { font-size: 0.72rem; }
+}
+
+/* —— Homepage maker portrait —— */
+.maker-portrait {
+  float: left;
+  width: 170px;
+  margin: 0.25rem 1.75rem 1rem 0;
+  text-align: center;
+}
+.maker-portrait a { display: block; width: 160px; margin: 0 auto; border-radius: 50%; }
+.maker-portrait img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: 50% 35%;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.maker-portrait a:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(194, 178, 128, 0.3);
+}
+.maker-portrait figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--cream-dim);
+}
+.hero::after { content: ""; display: table; clear: both; }
+@media (max-width: 640px) {
+  .maker-portrait { float: none; margin: 0 auto 1.25rem; }
 }
 '''
 
