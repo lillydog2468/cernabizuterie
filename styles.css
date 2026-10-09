@@ -505,3 +505,7 @@ h2 {
 @media (max-width: 640px) {
   .maker-portrait { float: none; margin: 0 auto 1.25rem; }
 }
+
+/* Outline (ghost) button: keep text readable on dark background (overrides .btn ink colour) */
+.btn.btn-ghost { color: var(--gold) !important; }
+.btn.btn-ghost:hover { color: var(--cream) !important; }
