@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-761VCYGKWC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-761VCYGKWC');
+</script>
+<meta name="description" content="Interessenbekundung für den Versand von schwarzem Schmuck. Dies ist keine Bestellung und es wird keine Zahlung verlangt." />
+<title>Interessenbekundung — Černá bižuterie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  .interest-banner {
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.05rem 1.15rem;
+    margin: 0 0 1.4rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    line-height: 1.35;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .interest-intro { color: var(--cream-dim); max-width: 40rem; }
+  .status-note {
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    background: var(--bg-elev);
+    color: var(--cream);
+    max-width: 40rem;
+  }
+  .interest-form label.field { display: block; margin: 0.95rem 0 0.35rem; font-weight: 600; }
+  .interest-form .hint { font-weight: 400; color: var(--cream-dim); }
+  .interest-form input[type=text], .interest-form input[type=email], .interest-form select, .interest-form textarea {
+    width: 100%; max-width: 40rem;
+    background: var(--bg-card); color: var(--cream);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 0.7rem 0.8rem; font: inherit;
+  }
+  .interest-form textarea { min-height: 8rem; resize: vertical; }
+  .interest-form .btn { cursor: pointer; margin-top: 1.15rem; border: 1px solid var(--gold-soft); }
+  .interest-all {
+    display: flex; gap: 0.7rem; align-items: center;
+    border: 1px solid var(--line-strong); border-radius: var(--radius);
+    padding: 0.8rem 0.95rem; margin: 0.4rem 0 0.2rem;
+    background: var(--bg-card); font-weight: 600; max-width: 40rem;
+  }
+  .interest-all input, .interest-card input { accent-color: #c2b280; width: 1.15rem; height: 1.15rem; }
+  .interest-card { cursor: pointer; position: relative; }
+  .interest-card input { position: absolute; top: 0.45rem; left: 0.45rem; z-index: 1; }
+  .interest-card:has(input:checked) { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+  .form-error { color: #e7b4a4; min-height: 1.3rem; }
+  .thanks { display: none; background: var(--bg-card); border: 1px solid var(--gold); border-radius: var(--radius); padding: 1.25rem 1.2rem; max-width: 40rem; }
+  .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <span class="brand-title">ČERNÁ BIŽUTERIE</span>
+      <span class="brand-sub">Stanislav Jiroš</span>
+    </a>
+  </div>
+  <div class="header-right">
+    <nav class="lang-switch" aria-label="Language"><a href="../cs/zajem.html" data-lang="cs">CS</a><span class="sep" aria-hidden="true">·</span><a href="../en/interest.html" data-lang="en">EN</a><span class="sep" aria-hidden="true">·</span><a href="../fr/interet.html" data-lang="fr">FR</a><span class="sep" aria-hidden="true">·</span><a href="../de/interesse.html" data-lang="de" class="active">DE</a></nav>
+    <button type="button" class="nav-toggle" aria-label="Menü" aria-expanded="false">☰</button>
+  </div>
+  <nav class="site-nav" id="site-nav">
+<a href="index.html">Start</a>
+<a href="vyrobky.html">Produkte</a>
+<a href="sklo.html">Glas</a>
+<a href="ceny.html">Preise</a>
+<a href="historie.html">Geschichte</a>
+<a href="ueber-stanislav.html">Über Stanislav</a>
+<a href="oceneni.html">Auszeichnungen</a>
+<a href="kontakt.html">Kontakt</a>
+  </nav>
+</header>
+<main class="page">
+  <p class="interest-banner">Interessenbekundung – dies ist keine Bestellung und es wird keine Zahlung verlangt</p>
+  <h1>Interessenbekundung</h1>
+  <p class="interest-intro">Schreiben Sie uns, welche Stücke Sie gerne zugeschickt hätten. Es wird nichts bezahlt und daraus wird keine Bestellung.</p>
+  <p id="mode-note" class="status-note" hidden></p>
+  <form id="interest-form" class="interest-form" novalidate>
+    <label class="hp" aria-hidden="true">Website
+      <input type="text" name="company_website" tabindex="-1" autocomplete="off" />
+    </label>
+    <label class="field" for="name">Name <span class="hint">(erforderlich)</span></label>
+    <input id="name" name="name" type="text" autocomplete="name" maxlength="200" required />
+    <label class="field" for="email">E-Mail <span class="hint">(erforderlich)</span></label>
+    <input id="email" name="email" type="email" autocomplete="email" required />
+    <label class="field" for="country">Land <span class="hint">(erforderlich)</span></label>
+    <select id="country" name="country" required>
+      <option value="">Land wählen</option>
+      <option value="AR">Argentinien</option>
+<option value="AU">Australien</option>
+<option value="BE">Belgien</option>
+<option value="BA">Bosnien und Herzegowina</option>
+<option value="BR">Brasilien</option>
+<option value="BG">Bulgarien</option>
+<option value="CL">Chile</option>
+<option value="CN">China</option>
+<option value="DK">Dänemark</option>
+<option value="DE">Deutschland</option>
+<option value="EE">Estland</option>
+<option value="FI">Finnland</option>
+<option value="FR">Frankreich</option>
+<option value="GR">Griechenland</option>
+<option value="HK">Hongkong</option>
+<option value="IN">Indien</option>
+<option value="IE">Irland</option>
+<option value="IS">Island</option>
+<option value="IL">Israel</option>
+<option value="IT">Italien</option>
+<option value="JP">Japan</option>
+<option value="CA">Kanada</option>
+<option value="HR">Kroatien</option>
+<option value="LV">Lettland</option>
+<option value="LT">Litauen</option>
+<option value="LU">Luxemburg</option>
+<option value="MT">Malta</option>
+<option value="MX">Mexiko</option>
+<option value="NZ">Neuseeland</option>
+<option value="NL">Niederlande</option>
+<option value="NO">Norwegen</option>
+<option value="AT">Österreich</option>
+<option value="PL">Polen</option>
+<option value="PT">Portugal</option>
+<option value="RO">Rumänien</option>
+<option value="SE">Schweden</option>
+<option value="CH">Schweiz</option>
+<option value="RS">Serbien</option>
+<option value="SG">Singapur</option>
+<option value="SK">Slowakei</option>
+<option value="SI">Slowenien</option>
+<option value="ES">Spanien</option>
+<option value="ZA">Südafrika</option>
+<option value="KR">Südkorea</option>
+<option value="TW">Taiwan</option>
+<option value="CZ">Tschechien</option>
+<option value="TR">Türkei</option>
+<option value="UA">Ukraine</option>
+<option value="HU">Ungarn</option>
+<option value="AE">Vereinigte Arabische Emirate</option>
+<option value="US">Vereinigte Staaten</option>
+<option value="GB">Vereinigtes Königreich</option>
+<option value="CY">Zypern</option>
+<option value="OTHER">Anderes Land</option>
+    </select>
+    <label class="field" for="region">Ort / Region <span class="hint">(erforderlich)</span></label>
+    <input id="region" name="region" type="text" maxlength="200" required />
+    <h2>Stücke, die Sie interessieren</h2>
+    <label class="interest-all">
+      <input type="checkbox" name="products" value="general" />
+      <span>Allgemeines Interesse / alles</span>
+    </label>
+    <h2>Anhänger</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="965" /><img src="../images/bizu/891_t.jpg" alt="Muster 965" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 965</span><span class="price-badge">370,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1358" /><img src="../images/bizu/1358_t.jpg" alt="Muster 1358" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1358</span><span class="price-badge">420,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="968" /><img src="../images/bizu/894_t.jpg" alt="Muster 968" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 968</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="995" /><img src="../images/bizu/896_t.jpg" alt="Muster 995" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 995</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1038" /><img src="../images/bizu/897_t.jpg" alt="Muster 1038" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1038</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="998" /><img src="../images/bizu/899_t.jpg" alt="Muster 998" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 998</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1034" /><img src="../images/bizu/900_t.jpg" alt="Muster 1034" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1034</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="723" /><img src="../images/bizu/902_t.jpg" alt="Muster 723" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 723</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="540" /><img src="../images/bizu/904_t.jpg" alt="Muster 540" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 540</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1087" /><img src="../images/bizu/1087_t.jpg" alt="Muster 1087" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1087</span><span class="price-badge">550,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1082" /><img src="../images/bizu/1082_t.jpg" alt="Muster 1082" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1082</span><span class="price-badge">310,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1336" /><img src="../images/bizu/1336_t.jpg" alt="Muster 1336" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1336</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1357" /><img src="../images/bizu/1357_t.jpg" alt="Muster 1357" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1357</span><span class="price-badge">600,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1320" /><img src="../images/bizu/1320_t.jpg" alt="Muster 1320" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1320</span><span class="price-badge">500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1157" /><img src="../images/bizu/1157_t.jpg" alt="Muster 1157" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1157</span><span class="price-badge">600,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="470" /><img src="../images/bizu/470_t.jpg" alt="Muster 470" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 470</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1326" /><img src="../images/bizu/1326_t.jpg" alt="Muster 1326" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1326</span><span class="price-badge">500,- Kč</span></span></label>
+</div>
+<h2>Ohrringe</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="817" /><img src="../images/bizu/907_t.jpg" alt="Muster 817" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 817</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1054" /><img src="../images/bizu/909_t.jpg" alt="Muster 1054" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1054</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="850" /><img src="../images/bizu/911_t.jpg" alt="Muster 850" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 850</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1006" /><img src="../images/bizu/914_t.jpg" alt="Muster 1006" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1006</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="897" /><img src="../images/bizu/915_t.jpg" alt="Muster 897" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 897</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="887" /><img src="../images/bizu/916_t.jpg" alt="Muster 887" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 887</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1051" /><img src="../images/bizu/919_t.jpg" alt="Muster 1051" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1051</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="286" /><img src="../images/bizu/920_t.jpg" alt="Muster 286" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 286</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="706" /><img src="../images/bizu/921_t.jpg" alt="Muster 706" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 706</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1047" /><img src="../images/bizu/922_t.jpg" alt="Muster 1047" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1047</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="929" /><img src="../images/bizu/923_t.jpg" alt="Muster 929" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 929</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="892" /><img src="../images/bizu/892_t.jpg" alt="Muster 892" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 892</span><span class="price-badge">380,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="848" /><img src="../images/bizu/848_t.jpg" alt="Muster 848" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 848</span><span class="price-badge">290,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="813" /><img src="../images/bizu/813_t.jpg" alt="Muster 813" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 813</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="883" /><img src="../images/bizu/883_t.jpg" alt="Muster 883" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 883</span><span class="price-badge">500,- Kč</span></span></label>
+</div>
+<h2>Samtbänder</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="1026" /><img src="../images/bizu/925_t.jpg" alt="Muster 1026" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1026</span><span class="price-badge">500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1096" /><img src="../images/bizu/1096_t.jpg" alt="Muster 1096" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1096</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1089" /><img src="../images/bizu/1089_t.jpg" alt="Muster 1089" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1089</span><span class="price-badge">500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1090" /><img src="../images/bizu/1090_t.jpg" alt="Muster 1090" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1090</span><span class="price-badge">500,- Kč</span></span></label>
+</div>
+<h2>Broschen</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="1074" /><img src="../images/bizu/928_t.jpg" alt="Muster 1074" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1074</span><span class="price-badge">800,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1073" /><img src="../images/bizu/929_t.jpg" alt="Muster 1073" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1073</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="518" /><img src="../images/bizu/932_t.jpg" alt="Muster 518" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 518</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="776" /><img src="../images/bizu/933_t.jpg" alt="Muster 776" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 776</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="662" /><img src="../images/bizu/662_t.jpg" alt="Muster 662" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 662</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="512" /><img src="../images/bizu/512_t.jpg" alt="Muster 512" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 512</span><span class="price-badge">290,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1067" /><img src="../images/bizu/1067_t.jpg" alt="Muster 1067" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1067</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="710" /><img src="../images/bizu/710_t.jpg" alt="Muster 710" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 710</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1188" /><img src="../images/bizu/1188_t.jpg" alt="Muster 1188" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1188</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1291" /><img src="../images/bizu/1291_t.jpg" alt="Muster 1291" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1291</span><span class="price-badge">700,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1321" /><img src="../images/bizu/1321_t.jpg" alt="Muster 1321" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1321</span><span class="price-badge">750,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1336 B" /><img src="../images/bizu/1336B_t.jpg" alt="Muster 1336 B" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1336 B</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1344" /><img src="../images/bizu/1344_t.jpg" alt="Muster 1344" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1344</span><span class="price-badge">350,- Kč</span></span></label>
+</div>
+<h2>Schließen</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="926" /><img src="../images/bizu/broz-926_t.jpg" alt="Muster 926" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 926</span><span class="price-badge">700,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1331" /><img src="../images/bizu/1331_t.jpg" alt="Muster 1331" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1331</span><span class="price-badge">800,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1131" /><img src="../images/bizu/1131_t.jpg" alt="Muster 1131" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1131</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1130" /><img src="../images/bizu/1130_t.jpg" alt="Muster 1130" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 1130</span><span class="price-badge">550,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="680" /><img src="../images/bizu/680_t.jpg" alt="Muster 680" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 680</span><span class="price-badge">800,- Kč</span></span></label>
+</div>
+<h2>Garnituren</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="962" /><img src="../images/bizu/940_t.jpg" alt="Muster 962" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 962</span><span class="price-badge">1000,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="411" /><img src="../images/bizu/942_t.jpg" alt="Muster 411" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 411</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="352" /><img src="../images/bizu/352_t.jpg" alt="Muster 352" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 352</span><span class="price-badge">1500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="882" /><img src="../images/bizu/882_t.jpg" alt="Muster 882" width="160" height="160" /><span class="cap"><span class="pattern-label">Muster 882</span><span class="price-badge">1000,- Kč</span></span></label>
+</div>
+    <label class="field" for="message">Nachricht <span class="hint">(freiwillig)</span></label>
+    <textarea id="message" name="message" maxlength="4000"></textarea>
+    <p id="form-error" class="form-error" role="alert"></p>
+    <button class="btn" type="submit">Interesse senden</button>
+  </form>
+  <div id="thanks" class="thanks" tabindex="-1">
+    <h2>Danke</h2>
+    <p id="thanks-detail"></p>
+  </div>
+</main>
+<footer class="site-footer">
+  <h3>Geschäfts-, Zahlungs- und Lieferbedingungen</h3>
+  <p>Bestellungen telefonisch unter <a href="tel:+420723335058">723&nbsp;335&nbsp;058</a> oder per E-Mail an <a href="mailto:blackjet@centrum.cz">blackjet@centrum.cz</a>.</p>
+  <p>Alle Waren werden einzeln in Pappschachteln mit Sichtfenster verpackt.</p>
+  <p>Zahlung per Nachnahme bei Versand oder bar bei persönlicher Abholung (nach vorheriger telefonischer Absprache).</p>
+</footer>
+<dialog id="lightbox" class="lightbox">
+  <form method="dialog"><button class="lb-close" aria-label="Schließen">×</button></form>
+  <img id="lb-img" alt="" />
+  <p id="lb-cap"></p>
+</dialog>
+<script src="../lang.js"></script>
+<script src="../script.js"></script>
+<script>
+  var INTEREST_ENDPOINT = "";
+  var LANG = "de";
+  var COPY = {"notconn": "TEST – noch nicht verbunden. Beim Absenden wird nichts gesendet.", "thanksSim": "Danke für Ihr Interesse. Es wurde nichts gesendet; das Formular ist noch nicht verbunden.", "thanksOk": "Danke für Ihr Interesse.", "errName": "Bitte geben Sie Ihren Namen ein.", "errEmail": "Bitte geben Sie eine E-Mail-Adresse ein.", "errCountry": "Bitte wählen Sie ein Land.", "errRegion": "Bitte geben Sie einen Ort oder eine Region ein.", "errProducts": "Bitte wählen Sie mindestens ein Stück oder allgemeines Interesse.", "errSend": "Das Interesse konnte nicht gesendet werden."};
+  var modeNote = document.getElementById("mode-note");
+  if (!INTEREST_ENDPOINT) {
+    modeNote.hidden = false;
+    modeNote.textContent = COPY.notconn;
+  }
+  function showThanks(detail) {
+    document.getElementById("interest-form").hidden = true;
+    document.getElementById("thanks-detail").textContent = detail;
+    var thanks = document.getElementById("thanks");
+    thanks.style.display = "block";
+    thanks.focus();
+  }
+  document.getElementById("interest-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    var error = document.getElementById("form-error");
+    error.textContent = "";
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var country = document.getElementById("country").value;
+    var region = document.getElementById("region").value.trim();
+    var message = document.getElementById("message").value.trim();
+    var honeypot = document.querySelector("[name=company_website]").value.trim();
+    var products = [];
+    document.querySelectorAll("input[name=products]:checked").forEach(function (box) {
+      products.push(box.value);
+    });
+    if (!name) { error.textContent = COPY.errName; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { error.textContent = COPY.errEmail; return; }
+    if (!country) { error.textContent = COPY.errCountry; return; }
+    if (!region) { error.textContent = COPY.errRegion; return; }
+    if (!products.length) { error.textContent = COPY.errProducts; return; }
+    if (honeypot) { showThanks(COPY.thanksOk); return; }
+    var payload = {
+      name: name,
+      email: email,
+      country: country,
+      region: region,
+      products: products,
+      message: message,
+      language: LANG,
+      company_website: ""
+    };
+    if (!INTEREST_ENDPOINT) {
+      showThanks(COPY.thanksSim);
+      return;
+    }
+    var button = event.target.querySelector("button");
+    button.disabled = true;
+    fetch(INTEREST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (!data || data.ok !== true) {
+        error.textContent = COPY.errSend;
+        button.disabled = false;
+        return;
+      }
+      showThanks(COPY.thanksOk);
+    }).catch(function () {
+      showThanks(COPY.thanksOk);
+    });
+  });
+</script>
+</body>
+</html>

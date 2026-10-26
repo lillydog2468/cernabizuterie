@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-761VCYGKWC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-761VCYGKWC');
+</script>
+<meta name="description" content="Projevení zájmu o zaslání černé bižuterie. Nejedná se o objednávku ani platbu." />
+<title>Projevení zájmu — Černá bižuterie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  .interest-banner {
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.05rem 1.15rem;
+    margin: 0 0 1.4rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    line-height: 1.35;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .interest-intro { color: var(--cream-dim); max-width: 40rem; }
+  .status-note {
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    background: var(--bg-elev);
+    color: var(--cream);
+    max-width: 40rem;
+  }
+  .interest-form label.field { display: block; margin: 0.95rem 0 0.35rem; font-weight: 600; }
+  .interest-form .hint { font-weight: 400; color: var(--cream-dim); }
+  .interest-form input[type=text], .interest-form input[type=email], .interest-form select, .interest-form textarea {
+    width: 100%; max-width: 40rem;
+    background: var(--bg-card); color: var(--cream);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 0.7rem 0.8rem; font: inherit;
+  }
+  .interest-form textarea { min-height: 8rem; resize: vertical; }
+  .interest-form .btn { cursor: pointer; margin-top: 1.15rem; border: 1px solid var(--gold-soft); }
+  .interest-all {
+    display: flex; gap: 0.7rem; align-items: center;
+    border: 1px solid var(--line-strong); border-radius: var(--radius);
+    padding: 0.8rem 0.95rem; margin: 0.4rem 0 0.2rem;
+    background: var(--bg-card); font-weight: 600; max-width: 40rem;
+  }
+  .interest-all input, .interest-card input { accent-color: #c2b280; width: 1.15rem; height: 1.15rem; }
+  .interest-card { cursor: pointer; position: relative; }
+  .interest-card input { position: absolute; top: 0.45rem; left: 0.45rem; z-index: 1; }
+  .interest-card:has(input:checked) { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+  .form-error { color: #e7b4a4; min-height: 1.3rem; }
+  .thanks { display: none; background: var(--bg-card); border: 1px solid var(--gold); border-radius: var(--radius); padding: 1.25rem 1.2rem; max-width: 40rem; }
+  .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">
+      <span class="brand-title">ČERNÁ BIŽUTERIE</span>
+      <span class="brand-sub">Stanislav Jiroš</span>
+    </a>
+  </div>
+  <div class="header-right">
+    <nav class="lang-switch" aria-label="Language"><a href="../cs/zajem.html" data-lang="cs" class="active">CS</a><span class="sep" aria-hidden="true">·</span><a href="../en/interest.html" data-lang="en">EN</a><span class="sep" aria-hidden="true">·</span><a href="../fr/interet.html" data-lang="fr">FR</a><span class="sep" aria-hidden="true">·</span><a href="../de/interesse.html" data-lang="de">DE</a></nav>
+    <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+  <nav class="site-nav" id="site-nav">
+<a href="index.html">Úvod</a>
+<a href="vyrobky.html">Výrobky</a>
+<a href="sklo.html">Sklo</a>
+<a href="ceny.html">Ceny</a>
+<a href="historie.html">Historie</a>
+<a href="o-stanislavovi.html">O Stanislavovi</a>
+<a href="oceneni.html">Ocenění</a>
+<a href="kontakt.html">Kontakt</a>
+  </nav>
+</header>
+<main class="page">
+  <p class="interest-banner">Projevení zájmu – nejedná se o objednávku ani platbu</p>
+  <h1>Projevení zájmu</h1>
+  <p class="interest-intro">Napište, které šperky byste si přáli dostat poštou. Nic se neplatí a objednávka z toho nevznikne.</p>
+  <p id="mode-note" class="status-note" hidden></p>
+  <form id="interest-form" class="interest-form" novalidate>
+    <label class="hp" aria-hidden="true">Website
+      <input type="text" name="company_website" tabindex="-1" autocomplete="off" />
+    </label>
+    <label class="field" for="name">Jméno <span class="hint">(povinné)</span></label>
+    <input id="name" name="name" type="text" autocomplete="name" maxlength="200" required />
+    <label class="field" for="email">E-mail <span class="hint">(povinné)</span></label>
+    <input id="email" name="email" type="email" autocomplete="email" required />
+    <label class="field" for="country">Země <span class="hint">(povinné)</span></label>
+    <select id="country" name="country" required>
+      <option value="">Vyberte zemi</option>
+      <option value="AR">Argentina</option>
+<option value="AU">Austrálie</option>
+<option value="BE">Belgie</option>
+<option value="BA">Bosna a Hercegovina</option>
+<option value="BR">Brazílie</option>
+<option value="BG">Bulharsko</option>
+<option value="CZ">Česko</option>
+<option value="CL">Chile</option>
+<option value="HR">Chorvatsko</option>
+<option value="CN">Čína</option>
+<option value="DK">Dánsko</option>
+<option value="EE">Estonsko</option>
+<option value="FI">Finsko</option>
+<option value="FR">Francie</option>
+<option value="HK">Hongkong</option>
+<option value="IN">Indie</option>
+<option value="IE">Irsko</option>
+<option value="IS">Island</option>
+<option value="IT">Itálie</option>
+<option value="IL">Izrael</option>
+<option value="JP">Japonsko</option>
+<option value="ZA">Jihoafrická republika</option>
+<option value="KR">Jižní Korea</option>
+<option value="CA">Kanada</option>
+<option value="CY">Kypr</option>
+<option value="LT">Litva</option>
+<option value="LV">Lotyšsko</option>
+<option value="LU">Lucembursko</option>
+<option value="HU">Maďarsko</option>
+<option value="MT">Malta</option>
+<option value="MX">Mexiko</option>
+<option value="DE">Německo</option>
+<option value="NL">Nizozemsko</option>
+<option value="NO">Norsko</option>
+<option value="NZ">Nový Zéland</option>
+<option value="PL">Polsko</option>
+<option value="PT">Portugalsko</option>
+<option value="AT">Rakousko</option>
+<option value="GR">Řecko</option>
+<option value="RO">Rumunsko</option>
+<option value="SG">Singapur</option>
+<option value="SK">Slovensko</option>
+<option value="SI">Slovinsko</option>
+<option value="ES">Španělsko</option>
+<option value="AE">Spojené arabské emiráty</option>
+<option value="GB">Spojené království</option>
+<option value="US">Spojené státy</option>
+<option value="RS">Srbsko</option>
+<option value="SE">Švédsko</option>
+<option value="CH">Švýcarsko</option>
+<option value="TW">Tchaj-wan</option>
+<option value="TR">Turecko</option>
+<option value="UA">Ukrajina</option>
+<option value="OTHER">Jiná země</option>
+    </select>
+    <label class="field" for="region">Město / region <span class="hint">(povinné)</span></label>
+    <input id="region" name="region" type="text" maxlength="200" required />
+    <h2>Výrobky, o které máte zájem</h2>
+    <label class="interest-all">
+      <input type="checkbox" name="products" value="general" />
+      <span>Obecný zájem / všechno</span>
+    </label>
+    <h2>Přívěsy</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="965" /><img src="../images/bizu/891_t.jpg" alt="vzor 965" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 965</span><span class="price-badge">370,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1358" /><img src="../images/bizu/1358_t.jpg" alt="vzor 1358" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1358</span><span class="price-badge">420,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="968" /><img src="../images/bizu/894_t.jpg" alt="vzor 968" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 968</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="995" /><img src="../images/bizu/896_t.jpg" alt="vzor 995" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 995</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1038" /><img src="../images/bizu/897_t.jpg" alt="vzor 1038" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1038</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="998" /><img src="../images/bizu/899_t.jpg" alt="vzor 998" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 998</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1034" /><img src="../images/bizu/900_t.jpg" alt="vzor 1034" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1034</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="723" /><img src="../images/bizu/902_t.jpg" alt="vzor 723" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 723</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="540" /><img src="../images/bizu/904_t.jpg" alt="vzor 540" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 540</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1087" /><img src="../images/bizu/1087_t.jpg" alt="vzor 1087" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1087</span><span class="price-badge">550,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1082" /><img src="../images/bizu/1082_t.jpg" alt="vzor 1082" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1082</span><span class="price-badge">310,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1336" /><img src="../images/bizu/1336_t.jpg" alt="vzor 1336" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1336</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1357" /><img src="../images/bizu/1357_t.jpg" alt="vzor 1357" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1357</span><span class="price-badge">600,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1320" /><img src="../images/bizu/1320_t.jpg" alt="vzor 1320" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1320</span><span class="price-badge">500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1157" /><img src="../images/bizu/1157_t.jpg" alt="vzor 1157" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1157</span><span class="price-badge">600,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="470" /><img src="../images/bizu/470_t.jpg" alt="vzor 470" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 470</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1326" /><img src="../images/bizu/1326_t.jpg" alt="vzor 1326" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1326</span><span class="price-badge">500,- Kč</span></span></label>
+</div>
+<h2>Náušnice</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="817" /><img src="../images/bizu/907_t.jpg" alt="vzor 817" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 817</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1054" /><img src="../images/bizu/909_t.jpg" alt="vzor 1054" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1054</span><span class="price-badge">300,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="850" /><img src="../images/bizu/911_t.jpg" alt="vzor 850" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 850</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1006" /><img src="../images/bizu/914_t.jpg" alt="vzor 1006" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1006</span><span class="price-badge">200,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="897" /><img src="../images/bizu/915_t.jpg" alt="vzor 897" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 897</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="887" /><img src="../images/bizu/916_t.jpg" alt="vzor 887" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 887</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1051" /><img src="../images/bizu/919_t.jpg" alt="vzor 1051" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1051</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="286" /><img src="../images/bizu/920_t.jpg" alt="vzor 286" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 286</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="706" /><img src="../images/bizu/921_t.jpg" alt="vzor 706" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 706</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1047" /><img src="../images/bizu/922_t.jpg" alt="vzor 1047" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1047</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="929" /><img src="../images/bizu/923_t.jpg" alt="vzor 929" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 929</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="892" /><img src="../images/bizu/892_t.jpg" alt="vzor 892" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 892</span><span class="price-badge">380,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="848" /><img src="../images/bizu/848_t.jpg" alt="vzor 848" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 848</span><span class="price-badge">290,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="813" /><img src="../images/bizu/813_t.jpg" alt="vzor 813" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 813</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="883" /><img src="../images/bizu/883_t.jpg" alt="vzor 883" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 883</span><span class="price-badge">500,- Kč</span></span></label>
+</div>
+<h2>Sametky</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="1026" /><img src="../images/bizu/925_t.jpg" alt="vzor 1026" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1026</span><span class="price-badge">500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1096" /><img src="../images/bizu/1096_t.jpg" alt="vzor 1096" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1096</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1089" /><img src="../images/bizu/1089_t.jpg" alt="vzor 1089" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1089</span><span class="price-badge">500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1090" /><img src="../images/bizu/1090_t.jpg" alt="vzor 1090" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1090</span><span class="price-badge">500,- Kč</span></span></label>
+</div>
+<h2>Brože</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="1074" /><img src="../images/bizu/928_t.jpg" alt="vzor 1074" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1074</span><span class="price-badge">800,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1073" /><img src="../images/bizu/929_t.jpg" alt="vzor 1073" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1073</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="518" /><img src="../images/bizu/932_t.jpg" alt="vzor 518" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 518</span><span class="price-badge">250,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="776" /><img src="../images/bizu/933_t.jpg" alt="vzor 776" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 776</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="662" /><img src="../images/bizu/662_t.jpg" alt="vzor 662" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 662</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="512" /><img src="../images/bizu/512_t.jpg" alt="vzor 512" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 512</span><span class="price-badge">290,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1067" /><img src="../images/bizu/1067_t.jpg" alt="vzor 1067" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1067</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="710" /><img src="../images/bizu/710_t.jpg" alt="vzor 710" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 710</span><span class="price-badge">350,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1188" /><img src="../images/bizu/1188_t.jpg" alt="vzor 1188" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1188</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1291" /><img src="../images/bizu/1291_t.jpg" alt="vzor 1291" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1291</span><span class="price-badge">700,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1321" /><img src="../images/bizu/1321_t.jpg" alt="vzor 1321" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1321</span><span class="price-badge">750,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1336 B" /><img src="../images/bizu/1336B_t.jpg" alt="vzor 1336 B" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1336 B</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1344" /><img src="../images/bizu/1344_t.jpg" alt="vzor 1344" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1344</span><span class="price-badge">350,- Kč</span></span></label>
+</div>
+<h2>Spony</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="926" /><img src="../images/bizu/broz-926_t.jpg" alt="vzor 926" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 926</span><span class="price-badge">700,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1331" /><img src="../images/bizu/1331_t.jpg" alt="vzor 1331" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1331</span><span class="price-badge">800,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1131" /><img src="../images/bizu/1131_t.jpg" alt="vzor 1131" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1131</span><span class="price-badge">450,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="1130" /><img src="../images/bizu/1130_t.jpg" alt="vzor 1130" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 1130</span><span class="price-badge">550,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="680" /><img src="../images/bizu/680_t.jpg" alt="vzor 680" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 680</span><span class="price-badge">800,- Kč</span></span></label>
+</div>
+<h2>Soupravy</h2>
+<div class="gallery">
+<label class="card interest-card"><input type="checkbox" name="products" value="962" /><img src="../images/bizu/940_t.jpg" alt="vzor 962" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 962</span><span class="price-badge">1000,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="411" /><img src="../images/bizu/942_t.jpg" alt="vzor 411" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 411</span><span class="price-badge">400,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="352" /><img src="../images/bizu/352_t.jpg" alt="vzor 352" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 352</span><span class="price-badge">1500,- Kč</span></span></label>
+<label class="card interest-card"><input type="checkbox" name="products" value="882" /><img src="../images/bizu/882_t.jpg" alt="vzor 882" width="160" height="160" /><span class="cap"><span class="pattern-label">vzor 882</span><span class="price-badge">1000,- Kč</span></span></label>
+</div>
+    <label class="field" for="message">Zpráva <span class="hint">(nepovinné)</span></label>
+    <textarea id="message" name="message" maxlength="4000"></textarea>
+    <p id="form-error" class="form-error" role="alert"></p>
+    <button class="btn" type="submit">Odeslat zájem</button>
+  </form>
+  <div id="thanks" class="thanks" tabindex="-1">
+    <h2>Děkujeme</h2>
+    <p id="thanks-detail"></p>
+  </div>
+</main>
+<footer class="site-footer">
+  <h3>Obchodní, platební a dodací podmínky</h3>
+  <p>Objednávky telefonicky na čísle <a href="tel:+420723335058">723&nbsp;335&nbsp;058</a> nebo e-mailem na adrese <a href="mailto:blackjet@centrum.cz">blackjet@centrum.cz</a>.</p>
+  <p>Veškeré zboží je baleno jednotlivě v papírových krabičkách s průhledem.</p>
+  <p>Platba na dobírku při zaslání zboží nebo hotově při osobním odběru (po telefonické domluvě předem).</p>
+</footer>
+<dialog id="lightbox" class="lightbox">
+  <form method="dialog"><button class="lb-close" aria-label="Zavřít">×</button></form>
+  <img id="lb-img" alt="" />
+  <p id="lb-cap"></p>
+</dialog>
+<script src="../lang.js"></script>
+<script src="../script.js"></script>
+<script>
+  var INTEREST_ENDPOINT = "";
+  var LANG = "cs";
+  var COPY = {"notconn": "TEST – formulář ještě není připojený a nic se neodesílá.", "thanksSim": "Děkujeme za projevený zájem. Nic nebylo odesláno, formulář ještě není připojený.", "thanksOk": "Děkujeme za projevený zájem.", "errName": "Zadejte jméno.", "errEmail": "Zadejte e-mail.", "errCountry": "Vyberte zemi.", "errRegion": "Napište město nebo region.", "errProducts": "Vyberte aspoň jeden výrobek, nebo obecný zájem.", "errSend": "Zájem se nepodařilo odeslat."};
+  var modeNote = document.getElementById("mode-note");
+  if (!INTEREST_ENDPOINT) {
+    modeNote.hidden = false;
+    modeNote.textContent = COPY.notconn;
+  }
+  function showThanks(detail) {
+    document.getElementById("interest-form").hidden = true;
+    document.getElementById("thanks-detail").textContent = detail;
+    var thanks = document.getElementById("thanks");
+    thanks.style.display = "block";
+    thanks.focus();
+  }
+  document.getElementById("interest-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    var error = document.getElementById("form-error");
+    error.textContent = "";
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var country = document.getElementById("country").value;
+    var region = document.getElementById("region").value.trim();
+    var message = document.getElementById("message").value.trim();
+    var honeypot = document.querySelector("[name=company_website]").value.trim();
+    var products = [];
+    document.querySelectorAll("input[name=products]:checked").forEach(function (box) {
+      products.push(box.value);
+    });
+    if (!name) { error.textContent = COPY.errName; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { error.textContent = COPY.errEmail; return; }
+    if (!country) { error.textContent = COPY.errCountry; return; }
+    if (!region) { error.textContent = COPY.errRegion; return; }
+    if (!products.length) { error.textContent = COPY.errProducts; return; }
+    if (honeypot) { showThanks(COPY.thanksOk); return; }
+    var payload = {
+      name: name,
+      email: email,
+      country: country,
+      region: region,
+      products: products,
+      message: message,
+      language: LANG,
+      company_website: ""
+    };
+    if (!INTEREST_ENDPOINT) {
+      showThanks(COPY.thanksSim);
+      return;
+    }
+    var button = event.target.querySelector("button");
+    button.disabled = true;
+    fetch(INTEREST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (!data || data.ok !== true) {
+        error.textContent = COPY.errSend;
+        button.disabled = false;
+        return;
+      }
+      showThanks(COPY.thanksOk);
+    }).catch(function () {
+      showThanks(COPY.thanksOk);
+    });
+  });
+</script>
+</body>
+</html>
