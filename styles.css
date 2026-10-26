@@ -129,6 +129,19 @@ img { max-width: 100%; height: auto; display: block; }
 .page {
   max-width: var(--max); margin: 0 auto; padding: 1.75rem 1.15rem 3rem;
 }
+.interest-entry { margin: 0 0 1.25rem; }
+.interest-entry.is-hero { text-align: center; }
+.interest-entry a {
+  display: inline-block;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  text-decoration: none;
+  color: var(--gold-bright);
+  background: rgba(194, 178, 128, 0.08);
+  font-size: 0.98rem;
+}
+.interest-entry a:hover { color: var(--cream); border-color: var(--gold); }
 h1 {
   font-family: var(--serif);
   font-weight: 600;
