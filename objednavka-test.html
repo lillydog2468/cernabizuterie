@@ -147,9 +147,8 @@
   </div>
 </main>
 <script>
-  // Paste the Apps Script web app URL (/exec) here after Keith deploys it.
-  // Leave it empty until then: the form stays in test mode and sends nothing.
-  var ORDER_ENDPOINT = "";
+  // Deployed Apps Script web app. Still a test: mail goes to the test address only.
+  var ORDER_ENDPOINT = "https://script.google.com/macros/s/AKfycbximYCt0S1nxFb1VMjesoJgn9-XnAkuWVMgZIxDMgkzZntNBco2_2mTRzhLu077vj5KbA/exec";
 
   var PRODUCTS = [
     { id: "965", label: "vzor 965 — 370,- Kč", photo: "images/bizu/891_t.jpg" },
@@ -192,15 +191,17 @@
   showProduct();
 
   var modeNote = document.getElementById("mode-note");
-  if (!ORDER_ENDPOINT) {
-    modeNote.hidden = false;
-    modeNote.textContent = "TEST – formulář ještě není připojený a nic se neodesílá. / Not yet connected: submitting does not send anything.";
-  }
+  modeNote.hidden = false;
+  modeNote.textContent = "TEST – formulář je připojený ve zkušebním režimu. E-maily jdou jen na zkušební adresu a bankovní údaje jsou zástupné. / Connected in test mode: emails go only to the test address, and the bank details are placeholders.";
 
   function showThanks(orderNumber, detail) {
     document.getElementById("order-form").hidden = true;
     document.querySelector(".preview").hidden = true;
-    document.getElementById("thanks-number").textContent = orderNumber;
+    var numberEl = document.getElementById("thanks-number");
+    numberEl.textContent = orderNumber;
+    numberEl.hidden = !orderNumber;
+    var label = numberEl.previousElementSibling;
+    if (label) label.hidden = !orderNumber;
     document.getElementById("thanks-detail").textContent = detail;
     var thanks = document.getElementById("thanks");
     thanks.style.display = "block";
@@ -244,6 +245,8 @@
 
     var button = event.target.querySelector("button");
     button.disabled = true;
+    var checkEmail = "Děkujeme, zkontrolujte e-mail. / Thank you, check your email.";
+    // text/plain is a CORS-safelisted type, so the browser sends the POST without a preflight.
     fetch(ORDER_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -251,17 +254,20 @@
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      if (!data || !data.ok) {
-        error.textContent = "Objednávku se nepodařilo odeslat. / The order could not be sent.";
-        button.disabled = false;
+      if (!data || !data.ok || !data.orderNumber) {
+        if (data && data.ok === false) {
+          error.textContent = "Objednávku se nepodařilo odeslat. / The order could not be sent.";
+          button.disabled = false;
+          return;
+        }
+        showThanks("", checkEmail);
         return;
       }
       var detail = "Potvrzení je v e-mailu. / A confirmation is in your email.";
       if (data.bankReady === false) detail += " TEST – bankovní údaje doplníme.";
       showThanks(data.orderNumber, detail);
     }).catch(function () {
-      error.textContent = "Objednávku se nepodařilo odeslat. / The order could not be sent.";
-      button.disabled = false;
+      showThanks("", checkEmail);
     });
   });
 </script>
