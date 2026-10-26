@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="description" content="TEST / UKÁZKA — předvedení platby PayPal. Platby nejsou skutečné." />
+<title>TEST / UKÁZKA — PayPal — Černá bižuterie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .demo-banner {
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.2rem 1.25rem;
+    margin: 0 0 1.6rem;
+    text-align: center;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .demo-banner p {
+    margin: 0.35rem 0 0;
+    font-weight: 700;
+    font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+  }
+  .demo-banner p:first-child { margin-top: 0; }
+  .demo-note {
+    text-align: center;
+    color: var(--cream-dim);
+    max-width: 40rem;
+    margin: 0 auto 1.5rem;
+  }
+  .buy-form { margin-top: 0.45rem; }
+  .buy-form .btn {
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    padding: 0.65rem 0.7rem;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="cs/index.html">
+      <span class="brand-title">ČERNÁ BIŽUTERIE</span>
+      <span class="brand-sub">Stanislav Jiroš</span>
+    </a>
+  </div>
+</header>
+<main class="page">
+  <div class="demo-banner">
+    <p>TEST / UKÁZKA – tato stránka slouží jen k předvedení, platby nejsou skutečné</p>
+    <p lang="en">TEST – demonstration only, no real payments</p>
+  </div>
+  <p class="demo-note">Prvních deset výrobků z české galerie. Tlačítko otevře jen zkušební PayPal (sandbox), ne skutečnou platbu.</p>
+  <h1>Ukázka nákupu</h1>
+  <div class="gallery">
+    <article class="card">
+      <img src="images/bizu/891_t.jpg" alt="vzor 965" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 965</span>
+        <span class="price-badge">370,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 965" />
+          <input type="hidden" name="amount" value="370.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/1358_t.jpg" alt="vzor 1358" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 1358</span>
+        <span class="price-badge">420,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 1358" />
+          <input type="hidden" name="amount" value="420.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/894_t.jpg" alt="vzor 968" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 968</span>
+        <span class="price-badge">350,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 968" />
+          <input type="hidden" name="amount" value="350.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/896_t.jpg" alt="vzor 995" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 995</span>
+        <span class="price-badge">300,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 995" />
+          <input type="hidden" name="amount" value="300.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/897_t.jpg" alt="vzor 1038" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 1038</span>
+        <span class="price-badge">300,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 1038" />
+          <input type="hidden" name="amount" value="300.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/899_t.jpg" alt="vzor 998" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 998</span>
+        <span class="price-badge">300,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 998" />
+          <input type="hidden" name="amount" value="300.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/900_t.jpg" alt="vzor 1034" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 1034</span>
+        <span class="price-badge">350,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 1034" />
+          <input type="hidden" name="amount" value="350.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/902_t.jpg" alt="vzor 723" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 723</span>
+        <span class="price-badge">300,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 723" />
+          <input type="hidden" name="amount" value="300.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/904_t.jpg" alt="vzor 540" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 540</span>
+        <span class="price-badge">200,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 540" />
+          <input type="hidden" name="amount" value="200.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+    <article class="card">
+      <img src="images/bizu/1087_t.jpg" alt="vzor 1087" width="160" height="160" />
+      <div class="cap">
+        <span class="pattern-label">vzor 1087</span>
+        <span class="price-badge">550,- Kč</span>
+        <form class="buy-form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="PAYPAL-ACCOUNT-PLACEHOLDER@example.com" />
+          <input type="hidden" name="item_name" value="vzor 1087" />
+          <input type="hidden" name="amount" value="550.00" />
+          <input type="hidden" name="currency_code" value="CZK" />
+          <button class="btn" type="submit">Koupit / Buy now</button>
+        </form>
+      </div>
+    </article>
+  </div>
+</main>
+</body>
+</html>
