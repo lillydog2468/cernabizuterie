@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="description" content="TEST / UKÁZKA — objednávkový formulář. Nic se neodesílá, dokud není formulář připojený." />
+<title>TEST / UKÁZKA — Objednávka — Černá bižuterie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .demo-banner {
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.2rem 1.25rem;
+    margin: 0 0 1.6rem;
+    text-align: center;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .demo-banner p {
+    margin: 0.35rem 0 0;
+    font-weight: 700;
+    font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+    line-height: 1.35;
+  }
+  .demo-banner p:first-child { margin-top: 0; }
+  .demo-note, .status-note {
+    text-align: center;
+    color: var(--cream-dim);
+    max-width: 40rem;
+    margin: 0 auto 1.25rem;
+  }
+  .status-note {
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    background: var(--bg-elev);
+  }
+  .order-wrap { max-width: 36rem; margin: 0 auto; }
+  .order-form label {
+    display: block;
+    margin: 0.95rem 0 0.35rem;
+    color: var(--cream);
+    font-weight: 600;
+  }
+  .order-form .hint { font-weight: 400; color: var(--cream-dim); }
+  .order-form input, .order-form select, .order-form textarea {
+    width: 100%;
+    background: var(--bg-card);
+    color: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+  }
+  .order-form textarea { min-height: 8rem; resize: vertical; }
+  .order-form .btn {
+    cursor: pointer;
+    margin-top: 1.15rem;
+    width: 100%;
+    border: 1px solid var(--gold-soft);
+  }
+  .preview {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+    margin: 0 0 0.5rem;
+  }
+  .preview img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: #000;
+  }
+  .thanks {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.2rem;
+    text-align: center;
+  }
+  .thanks h2 { margin-top: 0; }
+  .order-no {
+    font-size: 1.35rem;
+    color: var(--gold-bright);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .hp {
+    position: absolute;
+    left: -9999px;
+    height: 0;
+    overflow: hidden;
+  }
+  .form-error { color: #e7b4a4; min-height: 1.3rem; margin: 0.6rem 0 0; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="cs/index.html">
+      <span class="brand-title">ČERNÁ BIŽUTERIE</span>
+      <span class="brand-sub">Stanislav Jiroš</span>
+    </a>
+  </div>
+</header>
+<main class="page">
+  <div class="demo-banner">
+    <p>TEST / UKÁZKA – tato stránka slouží jen k předvedení, platby nejsou skutečné</p>
+    <p lang="en">TEST – demonstration only, no real payments</p>
+  </div>
+  <p class="demo-note">Objednávka e-mailem. Po připojení dostanou zákazník i obchod e-mail automaticky, bez ruční práce.</p>
+  <p id="mode-note" class="status-note" hidden></p>
+  <h1>Ukázka objednávky</h1>
+  <div class="order-wrap">
+    <div class="preview">
+      <img id="item-photo" alt="" width="96" height="96" />
+      <p id="item-caption" class="pattern-label"></p>
+    </div>
+    <form id="order-form" class="order-form" novalidate>
+      <label class="hp" aria-hidden="true">Website
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" />
+      </label>
+      <label for="email">E-mail <span class="hint">(povinné / required)</span></label>
+      <input id="email" name="email" type="email" autocomplete="email" required />
+      <label for="item">Výrobek / Item</label>
+      <select id="item" name="item" required></select>
+      <label for="name">Jméno / Name <span class="hint">(nepovinné / optional)</span></label>
+      <input id="name" name="name" type="text" autocomplete="name" maxlength="200" />
+      <label for="message">Message <span class="hint">(English, free text)</span></label>
+      <textarea id="message" name="message" maxlength="4000" placeholder="Write in English. The shop receives a Czech translation."></textarea>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <button class="btn" type="submit">Odeslat objednávku / Send order</button>
+    </form>
+    <div id="thanks" class="thanks" tabindex="-1">
+      <h2>Děkujeme / Thank you</h2>
+      <p>Číslo objednávky / Order number</p>
+      <p id="thanks-number" class="order-no"></p>
+      <p id="thanks-detail"></p>
+    </div>
+  </div>
+</main>
+<script>
+  // Paste the Apps Script web app URL (/exec) here after Keith deploys it.
+  // Leave it empty until then: the form stays in test mode and sends nothing.
+  var ORDER_ENDPOINT = "";
+
+  var PRODUCTS = [
+    { id: "965", label: "vzor 965 — 370,- Kč", photo: "images/bizu/891_t.jpg" },
+    { id: "1358", label: "vzor 1358 — 420,- Kč", photo: "images/bizu/1358_t.jpg" },
+    { id: "968", label: "vzor 968 — 350,- Kč", photo: "images/bizu/894_t.jpg" },
+    { id: "995", label: "vzor 995 — 300,- Kč", photo: "images/bizu/896_t.jpg" },
+    { id: "1038", label: "vzor 1038 — 300,- Kč", photo: "images/bizu/897_t.jpg" },
+    { id: "998", label: "vzor 998 — 300,- Kč", photo: "images/bizu/899_t.jpg" },
+    { id: "1034", label: "vzor 1034 — 350,- Kč", photo: "images/bizu/900_t.jpg" },
+    { id: "723", label: "vzor 723 — 300,- Kč", photo: "images/bizu/902_t.jpg" },
+    { id: "540", label: "vzor 540 — 200,- Kč", photo: "images/bizu/904_t.jpg" },
+    { id: "1087", label: "vzor 1087 — 550,- Kč", photo: "images/bizu/1087_t.jpg" },
+    { id: "other", label: "jiné / other", photo: "" }
+  ];
+
+  var select = document.getElementById("item");
+  var photo = document.getElementById("item-photo");
+  var caption = document.getElementById("item-caption");
+  PRODUCTS.forEach(function (product) {
+    var option = document.createElement("option");
+    option.value = product.id;
+    option.textContent = product.label;
+    select.appendChild(option);
+  });
+
+  function showProduct() {
+    var product = PRODUCTS.filter(function (item) { return item.id === select.value; })[0];
+    caption.textContent = product.label;
+    if (product.photo) {
+      photo.src = product.photo;
+      photo.alt = product.label;
+      photo.hidden = false;
+    } else {
+      photo.removeAttribute("src");
+      photo.alt = "";
+      photo.hidden = true;
+    }
+  }
+  select.addEventListener("change", showProduct);
+  showProduct();
+
+  var modeNote = document.getElementById("mode-note");
+  if (!ORDER_ENDPOINT) {
+    modeNote.hidden = false;
+    modeNote.textContent = "TEST – formulář ještě není připojený a nic se neodesílá. / Not yet connected: submitting does not send anything.";
+  }
+
+  function showThanks(orderNumber, detail) {
+    document.getElementById("order-form").hidden = true;
+    document.querySelector(".preview").hidden = true;
+    document.getElementById("thanks-number").textContent = orderNumber;
+    document.getElementById("thanks-detail").textContent = detail;
+    var thanks = document.getElementById("thanks");
+    thanks.style.display = "block";
+    thanks.focus();
+  }
+
+  document.getElementById("order-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    var error = document.getElementById("form-error");
+    error.textContent = "";
+    var email = document.getElementById("email").value.trim();
+    var name = document.getElementById("name").value.trim();
+    var message = document.getElementById("message").value.trim();
+    var honeypot = document.querySelector("[name=company_website]").value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      error.textContent = "Zadejte e-mail. / Please enter an email address.";
+      return;
+    }
+    if (honeypot) {
+      showThanks("TEST-NOT-SENT", "Děkujeme. / Thank you.");
+      return;
+    }
+
+    var payload = {
+      email: email,
+      item: select.value,
+      name: name,
+      message: message,
+      company_website: ""
+    };
+
+    if (!ORDER_ENDPOINT) {
+      var day = new Date();
+      var stamp = day.getFullYear() + ("0" + (day.getMonth() + 1)).slice(-2) + ("0" + day.getDate()).slice(-2);
+      showThanks(
+        "TEST-" + stamp + "-000",
+        "Nic nebylo odesláno. Formulář není připojený. / Nothing was sent. The form is not connected yet."
+      );
+      return;
+    }
+
+    var button = event.target.querySelector("button");
+    button.disabled = true;
+    fetch(ORDER_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (!data || !data.ok) {
+        error.textContent = "Objednávku se nepodařilo odeslat. / The order could not be sent.";
+        button.disabled = false;
+        return;
+      }
+      var detail = "Potvrzení je v e-mailu. / A confirmation is in your email.";
+      if (data.bankReady === false) detail += " TEST – bankovní údaje doplníme.";
+      showThanks(data.orderNumber, detail);
+    }).catch(function () {
+      error.textContent = "Objednávku se nepodařilo odeslat. / The order could not be sent.";
+      button.disabled = false;
+    });
+  });
+</script>
+</body>
+</html>
