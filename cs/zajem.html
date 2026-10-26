@@ -280,7 +280,21 @@
     thanks.style.display = "block";
     thanks.focus();
   }
-  document.getElementById("interest-form").addEventListener("submit", function (event) {
+  function trackInterest(eventName, params) {
+    if (typeof gtag !== "function") return;
+    gtag("event", eventName, params);
+  }
+  var formStarted = false;
+  function noteFormStart(event) {
+    if (formStarted) return;
+    if (event.target && event.target.name === "company_website") return;
+    formStarted = true;
+    trackInterest("interest_form_start", { form_language: LANG });
+  }
+  var interestForm = document.getElementById("interest-form");
+  interestForm.addEventListener("input", noteFormStart);
+  interestForm.addEventListener("change", noteFormStart);
+  interestForm.addEventListener("submit", function (event) {
     event.preventDefault();
     var error = document.getElementById("form-error");
     error.textContent = "";
@@ -294,11 +308,11 @@
     document.querySelectorAll("input[name=products]:checked").forEach(function (box) {
       products.push(box.value);
     });
-    if (!name) { error.textContent = COPY.errName; return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { error.textContent = COPY.errEmail; return; }
-    if (!country) { error.textContent = COPY.errCountry; return; }
-    if (!region) { error.textContent = COPY.errRegion; return; }
-    if (!products.length) { error.textContent = COPY.errProducts; return; }
+    if (!name) { error.textContent = COPY.errName; trackInterest("interest_form_error", { error: "name" }); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { error.textContent = COPY.errEmail; trackInterest("interest_form_error", { error: "email" }); return; }
+    if (!country) { error.textContent = COPY.errCountry; trackInterest("interest_form_error", { error: "country" }); return; }
+    if (!region) { error.textContent = COPY.errRegion; trackInterest("interest_form_error", { error: "region" }); return; }
+    if (!products.length) { error.textContent = COPY.errProducts; trackInterest("interest_form_error", { error: "products" }); return; }
     if (honeypot) { showThanks(COPY.thanksOk); return; }
     var payload = {
       name: name,
@@ -316,6 +330,8 @@
     }
     var button = event.target.querySelector("button");
     button.disabled = true;
+    var productCount = 0;
+    products.forEach(function (id) { if (id !== "general") productCount += 1; });
     fetch(INTEREST_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -324,12 +340,16 @@
       return response.json();
     }).then(function (data) {
       if (!data || data.ok !== true) {
+        var reason = data && typeof data.error === "string" && /^[a-z_]{1,40}$/.test(data.error) ? data.error : "send";
+        trackInterest("interest_form_error", { error: reason });
         error.textContent = COPY.errSend;
         button.disabled = false;
         return;
       }
+      trackInterest("interest_form_submit", { form_language: LANG, product_count: productCount, country: country });
       showThanks(COPY.thanksOk);
     }).catch(function () {
+      trackInterest("interest_form_error", { error: "network" });
       showThanks(COPY.thanksOk);
     });
   });

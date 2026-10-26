@@ -1,4 +1,33 @@
 (function () {
+  const interestLocations = {
+    'index.html': 'home',
+    'vyrobky.html': 'products',
+    'ceny.html': 'prices',
+    'historie.html': 'history',
+    'sklo.html': 'glass',
+    'kontakt.html': 'contact',
+    'oceneni.html': 'awards',
+    'o-stanislavovi.html': 'about',
+    'about-stanislav.html': 'about',
+    'a-propos-de-stanislav.html': 'about',
+    'ueber-stanislav.html': 'about'
+  };
+
+  document.querySelectorAll('.interest-entry a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (typeof gtag !== 'function') return;
+      const parts = location.pathname.split('/').filter(Boolean);
+      const folder = parts[0] || '';
+      const pageLanguage = (folder === 'cs' || folder === 'en' || folder === 'fr' || folder === 'de') ? folder : 'en';
+      const file = parts[parts.length - 1] || '';
+      const linkLocation = interestLocations[file] || (folder === file ? 'home' : 'content');
+      gtag('event', 'interest_link_click', {
+        link_location: linkLocation,
+        page_language: pageLanguage
+      });
+    });
+  });
+
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.getElementById('site-nav');
   if (toggle) {
